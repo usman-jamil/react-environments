@@ -17,8 +17,15 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "REACT_APP_ENV=development yarn start-env",
+    "start-env": "sh -ac '. .env.${REACT_APP_ENV}; craco start'",
+    "start:staging": "REACT_APP_ENV=staging yarn start-env",
+    "start:prod": "REACT_APP_ENV=production yarn start-env",
+    "serve": "serve -s build",
+    "build": "REACT_APP_ENV=development yarn build-env",
+    "build-env": "sh -ac '. .env.${REACT_APP_ENV}; craco build'",
+    "build:staging": "REACT_APP_ENV=staging yarn build-env",
+    "build:prod": "REACT_APP_ENV=production yarn build-env",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -39,5 +46,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@craco/craco": "^7.1.0"
   }
 }

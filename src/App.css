@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+.App-Mode {
+    color: #0f0;
+}
+
+.App-Code {
+    color: #0f0;
+}
